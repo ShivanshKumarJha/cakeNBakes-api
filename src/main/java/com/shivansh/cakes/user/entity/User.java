@@ -12,7 +12,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "users")
+@Table(name = "user_tbl")
 public class User extends BaseEntity {
 
     @Column(nullable = false, length = 50)

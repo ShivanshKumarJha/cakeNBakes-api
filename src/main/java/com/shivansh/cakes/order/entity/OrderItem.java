@@ -1,4 +1,4 @@
-package com.shivansh.cakes.category.entity;
+package com.shivansh.cakes.order.entity;
 
 import com.shivansh.cakes.common.entity.BaseEntity;
 import jakarta.persistence.Column;
@@ -13,16 +13,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Category extends BaseEntity {
+public class OrderItem extends BaseEntity {
 
-    @Column(unique = true)
-    private String title;
+    private Integer quantity;
 
-    @Column(unique = true)
-    private String slug;
-
-    @Column(length = 100)
-    private String description;
-    
-    private String image;
+    @Column(scale = 2)
+    private Double price;
 }
