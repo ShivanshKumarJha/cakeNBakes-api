@@ -2,10 +2,7 @@ package com.shivansh.cakes.address.entity;
 
 import com.shivansh.cakes.common.entity.BaseEntity;
 import com.shivansh.cakes.user.entity.User;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -46,7 +43,7 @@ public class Address extends BaseEntity {
 
     private Boolean selected;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 }
