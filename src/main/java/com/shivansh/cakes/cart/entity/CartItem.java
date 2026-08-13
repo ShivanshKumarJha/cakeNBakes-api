@@ -7,9 +7,17 @@ import jakarta.validation.constraints.Min;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Getter
 @Setter
 @Entity
+@Table(uniqueConstraints = {
+        @UniqueConstraint(
+                name = "uk_cart_product",
+                columnNames = {"cart_id", "product_id"}
+        )
+})
 public class CartItem extends BaseEntity {
 
     @Min(value = 1, message = "Quantity must be at least 1")
@@ -19,13 +27,13 @@ public class CartItem extends BaseEntity {
     @Column(nullable = false)
     private Double weight;
 
-    @Column(nullable = false)
-    private Double price;
+    @Column(nullable = false, precision = 10, scale = 2)
+    private BigDecimal price;
 
-    @Column(nullable = false)
-    private Double subTotal;
+    @Column(nullable = false, precision = 10, scale = 2)
+    private BigDecimal subTotal;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cart_id", nullable = false)
     private Cart cart;
 
