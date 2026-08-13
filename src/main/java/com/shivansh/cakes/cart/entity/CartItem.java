@@ -1,10 +1,8 @@
 package com.shivansh.cakes.cart.entity;
 
 import com.shivansh.cakes.common.entity.BaseEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import com.shivansh.cakes.product.entity.Product;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,4 +28,8 @@ public class CartItem extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "cart_id", nullable = false)
     private Cart cart;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
 }
