@@ -3,6 +3,7 @@ package com.shivansh.cakes.user.entity;
 import com.shivansh.cakes.address.entity.Address;
 import com.shivansh.cakes.cart.entity.Cart;
 import com.shivansh.cakes.common.entity.BaseEntity;
+import com.shivansh.cakes.wishlist.entity.Wishlist;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -45,4 +46,7 @@ public class User extends BaseEntity {
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Cart cart;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Wishlist wishlist;
 }
