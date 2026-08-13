@@ -1,14 +1,17 @@
 package com.shivansh.cakes.user.entity;
 
+import com.shivansh.cakes.address.entity.Address;
 import com.shivansh.cakes.common.entity.BaseEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import lombok.*;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -22,7 +25,7 @@ public class User extends BaseEntity {
     private String email;
 
     @Column(unique = true)
-    private Long contactNumber;
+    private String contactNumber;
 
     @Column(nullable = false)
     private String password;
@@ -34,4 +37,7 @@ public class User extends BaseEntity {
 
     @Column(nullable = false)
     private Boolean status;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Address> addresses;
 }

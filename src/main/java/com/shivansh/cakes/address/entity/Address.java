@@ -1,8 +1,11 @@
 package com.shivansh.cakes.address.entity;
 
 import com.shivansh.cakes.common.entity.BaseEntity;
+import com.shivansh.cakes.user.entity.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,7 +30,7 @@ public class Address extends BaseEntity {
     private String landMark;
 
     @Column(nullable = false)
-    private Integer pinCode;
+    private String pinCode;
 
     @Column(nullable = false)
     private String district;
@@ -39,7 +42,11 @@ public class Address extends BaseEntity {
     private String country;
 
     @Column(nullable = false)
-    private Long contact;
+    private String contact;
 
     private Boolean selected;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 }
