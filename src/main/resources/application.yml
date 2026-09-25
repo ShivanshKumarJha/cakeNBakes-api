@@ -16,3 +16,9 @@ springdoc:
     path: /api-docs
   swagger-ui:
     path: /swagger-ui.html
+
+app:
+  security:
+    jwt:
+      secret: ${JWT_SECRET:change-this-development-secret-to-a-256-bit-value}
+      access-token-expiration: ${JWT_ACCESS_TOKEN_EXPIRATION:PT1H}

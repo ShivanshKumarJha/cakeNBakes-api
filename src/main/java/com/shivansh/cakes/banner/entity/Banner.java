@@ -15,7 +15,7 @@ import lombok.Setter;
 @Entity
 public class Banner extends BaseEntity {
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 255)
     private String banner;
 
     @Column(nullable = false, length = 50)

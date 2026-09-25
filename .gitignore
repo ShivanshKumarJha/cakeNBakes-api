@@ -33,3 +33,13 @@ build/
 .vscode/
 ERD.md
 ERD_LATEST.png
+
+### Documentation & Notes ###
+docs/
+*.md
+
+### Configuration & Environment Files ###
+*.yml
+*.yaml
+application-*.yml
+application-*.yaml

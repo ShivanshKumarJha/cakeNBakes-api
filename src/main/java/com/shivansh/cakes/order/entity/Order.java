@@ -38,6 +38,15 @@ public class Order extends BaseEntity {
     @Column(length = 200)
     private String deliveryAddress;
 
+    @Column(length = 100)
+    private String razorpayOrderId;
+
+    @Column(length = 100)
+    private String razorpayPaymentId;
+
+    @Column(length = 200)
+    private String razorpaySignature;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
